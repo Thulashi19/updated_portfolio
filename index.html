@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thulashika Raveendran | Front-End Developer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg-color: #0d1117;
@@ -15,6 +16,16 @@
       --highlight: #f97583;
       --card-bg: #161b22;
       --badge-bg: #238636;
+      --transition: all 0.3s ease-in-out;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #ffffff;
+      --text-color: #0d1117;
+      --accent: #007acc;
+      --highlight: #cc3366;
+      --card-bg: #f1f1f1;
+      --badge-bg: #28a745;
     }
 
     body {
@@ -23,10 +34,11 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       scroll-behavior: smooth;
+      transition: var(--transition);
     }
 
     .navbar {
-      background: #010409;
+      background: var(--card-bg);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -34,6 +46,7 @@
       position: fixed;
       width: 100%;
       z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     }
 
     .navbar .logo {
@@ -52,17 +65,25 @@
     .navbar a {
       text-decoration: none;
       color: var(--text-color);
-      transition: 0.3s;
+      transition: var(--transition);
     }
 
     .navbar a:hover {
       color: var(--accent);
     }
 
+    .theme-toggle {
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      font-size: 20px;
+    }
+
     .hero {
       text-align: center;
       padding: 160px 20px 100px;
-      background: radial-gradient(circle, #1f2937, #0d1117);
+      background: linear-gradient(180deg, #1f2937, var(--bg-color));
     }
 
     .hero img {
@@ -75,7 +96,7 @@
     }
 
     .hero h2 {
-      font-size: 30px;
+      font-size: 36px;
       margin: 10px 0;
     }
 
@@ -85,6 +106,7 @@
 
     .hero p {
       font-size: 18px;
+      color: #b3b3b3;
     }
 
     .social-links {
@@ -95,6 +117,11 @@
       color: var(--text-color);
       margin: 0 10px;
       font-size: 22px;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
     }
 
     .section {
@@ -111,17 +138,29 @@
     }
 
     .section p {
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 17px;
+      line-height: 1.8;
       text-align: center;
       margin-bottom: 40px;
+      color: #ccc;
     }
 
     .skills {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      padding: 0 20px;
+    }
+
+    .skills div {
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+      transition: var(--transition);
+    }
+
+    .skills div:hover {
+      transform: translateY(-5px);
     }
 
     .skills div h4 {
@@ -133,20 +172,21 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 24px;
+      gap: 30px;
     }
 
     .project {
       background: var(--card-bg);
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 12px;
       width: 280px;
       text-align: center;
-      transition: transform 0.3s;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .project:hover {
-      transform: scale(1.05);
+      transform: translateY(-5px);
     }
 
     .project img {
@@ -165,22 +205,23 @@
     .badge {
       background: var(--badge-bg);
       color: white;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 50px;
-      font-size: 12px;
+      font-size: 13px;
     }
 
     .contact-info {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-size: 16px;
     }
 
     .contact-info a {
       color: var(--text-color);
       text-decoration: none;
+      transition: var(--transition);
     }
 
     .contact-info a:hover {
@@ -203,10 +244,11 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
   </nav>
 
-  <header class="hero">
-    <img src="myimg.jpeg" alt="Profile Picture">
+  <header class="hero" data-aos="fade-up">
+    <img src="myimg.jpeg" alt="Profile Picture" />
     <h2>Hi, I'm <span>Thulashika Raveendran</span> 👋</h2>
     <p>Front-End Developer Intern | React & UI/UX Enthusiast</p>
     <div class="social-links">
@@ -216,7 +258,7 @@
     </div>
   </header>
 
-  <section id="about" class="section">
+  <section id="about" class="section" data-aos="fade-right">
     <h3>About Me</h3>
     <p>I’m a passionate Frontend Developer Intern at Detech who enjoys building responsive, interactive, and user-friendly web applications using modern technologies.</p>
     <div class="skills">
@@ -235,23 +277,23 @@
     </div>
   </section>
 
-  <section id="projects" class="section">
+  <section id="projects" class="section" data-aos="fade-left">
     <h3>Projects</h3>
     <div class="projects-container">
       <div class="project">
-        <img src="project1.jpg" alt="Heart Beat">
+        <img src="project1.jpg" alt="Heart Beat" />
         <h4>Heart Beat</h4>
         <div class="badge">Health App</div>
         <a href="project1.html" target="_blank">View Project</a>
       </div>
       <div class="project">
-        <img src="project2.jpg" alt="Green">
+        <img src="project2.jpg" alt="Green" />
         <h4>Green</h4>
-        <div class="badge">E-Commerce</div>
+        <div class="badge">Eco Store</div>
         <a href="project3.html" target="_blank">View Project</a>
       </div>
       <div class="project">
-        <img src="project3.jpg" alt="Tech World">
+        <img src="project3.jpg" alt="Tech World" />
         <h4>Tech World</h4>
         <div class="badge">Blog Platform</div>
         <a href="project2.html" target="_blank">View Project</a>
@@ -259,7 +301,7 @@
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <section id="contact" class="section" data-aos="fade-up">
     <h3>Contact</h3>
     <p>Let’s collaborate on something awesome. Connect with me here:</p>
     <div class="contact-info">
@@ -267,5 +309,18 @@
       <a href="https://www.linkedin.com/in/thulashika-raveendran-023899312" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
     </div>
   </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      document.documentElement.setAttribute(
+        "data-theme",
+        currentTheme === "light" ? "dark" : "light"
+      );
+    }
+  </script>
 </body>
 </html>
