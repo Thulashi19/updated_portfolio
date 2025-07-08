@@ -6,80 +6,65 @@
   <title>Thulashika Raveendran | Front-End Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
     :root {
-      --primary-bg: #f7f9fc;
-      --primary-text: #1f2937;
-      --accent: #6366f1;
-      --highlight: #d97706;
-      --secondary-bg: #eef2ff;
-      --badge-color: #ec4899;
+      --bg-color: #0d1117;
+      --text-color: #e6edf3;
+      --accent: #58a6ff;
+      --highlight: #f97583;
+      --card-bg: #161b22;
+      --badge-bg: #238636;
     }
-    body.dark {
-      --primary-bg: #121212;
-      --primary-text: #f3f4f6;
-      --accent: #818cf8;
-      --highlight: #fbbf24;
-      --secondary-bg: #1f2937;
-      --badge-color: #f472b6;
-    }
+
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--primary-bg);
-      color: var(--primary-text);
-      transition: background 0.3s, color 0.3s;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
     }
+
     .navbar {
+      background: #010409;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--primary-bg);
-      padding: 14px 30px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      padding: 15px 30px;
       position: fixed;
       width: 100%;
-      top: 0;
       z-index: 1000;
     }
-    .logo {
+
+    .navbar .logo {
       font-size: 24px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--accent);
     }
+
     .navbar ul {
       list-style: none;
       display: flex;
       gap: 20px;
       margin: 0;
     }
+
     .navbar a {
-      color: var(--primary-text);
       text-decoration: none;
-      font-size: 16px;
-      transition: color 0.3s;
+      color: var(--text-color);
+      transition: 0.3s;
     }
+
     .navbar a:hover {
       color: var(--accent);
     }
-    .toggle-mode {
-      cursor: pointer;
-      font-size: 20px;
-      color: var(--accent);
-    }
+
     .hero {
-      padding: 160px 20px 100px;
-      background: linear-gradient(to right, #c7d2fe, #e0e7ff);
       text-align: center;
+      padding: 160px 20px 100px;
+      background: radial-gradient(circle, #1f2937, #0d1117);
     }
-    body.dark .hero {
-      background: linear-gradient(to right, #1e1b4b, #312e81);
-    }
+
     .hero img {
       width: 160px;
       height: 160px;
@@ -87,76 +72,83 @@
       border: 4px solid var(--accent);
       margin-bottom: 20px;
       object-fit: cover;
-      box-shadow: 0px 6px 12px rgba(99, 102, 241, 0.3);
     }
+
     .hero h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
+      font-size: 30px;
+      margin: 10px 0;
     }
+
     .hero span {
       color: var(--highlight);
     }
+
     .hero p {
       font-size: 18px;
     }
+
     .social-links {
       margin-top: 20px;
     }
+
     .social-links a {
-      color: var(--primary-text);
-      margin: 0 12px;
+      color: var(--text-color);
+      margin: 0 10px;
       font-size: 22px;
-      transition: 0.3s;
     }
-    .social-links a:hover {
-      color: var(--highlight);
-    }
+
     .section {
       padding: 80px 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
+
     .section h3 {
-      font-size: 30px;
+      font-size: 32px;
       color: var(--accent);
-      margin-bottom: 24px;
+      margin-bottom: 30px;
       text-align: center;
     }
+
     .section p {
       font-size: 16px;
       line-height: 1.7;
       text-align: center;
       margin-bottom: 40px;
     }
+
     .skills {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      text-align: center;
+      gap: 30px;
+      padding: 0 20px;
     }
-    .skills h4 {
-      color: var(--badge-color);
+
+    .skills div h4 {
+      color: var(--highlight);
       margin-bottom: 10px;
     }
+
     .projects-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 24px;
     }
+
     .project {
-      background: var(--secondary-bg);
+      background: var(--card-bg);
       padding: 20px;
-      border-radius: 12px;
+      border-radius: 10px;
       width: 280px;
-      transition: transform 0.3s, box-shadow 0.3s;
       text-align: center;
-      animation: fadeIn 1s ease forwards;
+      transition: transform 0.3s;
     }
+
     .project:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transform: scale(1.05);
     }
+
     .project img {
       width: 100%;
       height: 160px;
@@ -164,49 +156,42 @@
       border-radius: 8px;
       margin-bottom: 10px;
     }
+
     .project h4 {
       color: var(--highlight);
-      margin-bottom: 8px;
+      margin: 10px 0 5px;
     }
+
     .badge {
-      display: inline-block;
-      background: var(--badge-color);
+      background: var(--badge-bg);
       color: white;
-      padding: 2px 10px;
-      border-radius: 20px;
+      padding: 3px 10px;
+      border-radius: 50px;
       font-size: 12px;
-      margin-top: 4px;
     }
+
     .contact-info {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-    }
-    .contact-info a {
-      color: var(--primary-text);
-      text-decoration: none;
+      gap: 10px;
       font-size: 16px;
     }
+
+    .contact-info a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
     .contact-info a:hover {
       color: var(--accent);
     }
+
     @media (max-width: 768px) {
       .navbar ul {
         flex-direction: column;
         gap: 10px;
       }
-      .hero img {
-        width: 140px;
-        height: 140px;
-      }
-      .project {
-        width: 100%;
-      }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -218,9 +203,6 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="toggle-mode" onclick="document.body.classList.toggle('dark')">
-      <i class="fas fa-adjust"></i>
-    </div>
   </nav>
 
   <header class="hero">
@@ -236,7 +218,7 @@
 
   <section id="about" class="section">
     <h3>About Me</h3>
-    <p>I’m a passionate Frontend Developer Intern at Detech who loves building clean and interactive user experiences. I enjoy turning ideas into real-world websites using HTML, CSS, React, and modern UI libraries.</p>
+    <p>I’m a passionate Frontend Developer Intern at Detech who enjoys building responsive, interactive, and user-friendly web applications using modern technologies.</p>
     <div class="skills">
       <div>
         <h4>Frontend</h4>
@@ -247,7 +229,7 @@
         <p>Node.js, Express.js, MongoDB, MySQL</p>
       </div>
       <div>
-        <h4>Programming Languages</h4>
+        <h4>Languages</h4>
         <p>Python, C++, Java</p>
       </div>
     </div>
@@ -279,7 +261,7 @@
 
   <section id="contact" class="section">
     <h3>Contact</h3>
-    <p>If you’d like to collaborate, hire, or just say hello, reach out to me through the platforms below.</p>
+    <p>Let’s collaborate on something awesome. Connect with me here:</p>
     <div class="contact-info">
       <a href="mailto:thulasthulashi@example.com"><i class="fas fa-envelope"></i> thulasthulashi@gmail.com</a>
       <a href="https://www.linkedin.com/in/thulashika-raveendran-023899312" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
