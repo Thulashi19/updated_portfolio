@@ -24,7 +24,7 @@
       --text-color: #0d1117;
       --accent: #007acc;
       --highlight: #cc3366;
-      --card-bg: #5e3a3a;
+      --card-bg: #f1f1f1;
       --badge-bg: #28a745;
     }
 
@@ -310,4 +310,20 @@
     <h3>Contact</h3>
     <p>Let’s collaborate on something awesome. Connect with me here:</p>
     <div class="contact-info">
-      <a href="mailto:thulasthulashi@example.com"><i class="fas fa-envelope
+      <a href="mailto:thulasthulashi@example.com"><i class="fas fa-envelope"></i> thulasthulashi@gmail.com</a>
+      <a href="https://www.linkedin.com/in/thulashika-raveendran-023899312" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const currentTheme = htmlEl.getAttribute("data-theme");
+      htmlEl.setAttribute("data-theme", currentTheme === "light" ? "dark" : "light");
+    }
+  </script>
+</body>
+</html>
