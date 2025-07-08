@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thulashika Raveendran | Front-End Developer</title>
+  
+  <!-- FontAwesome & Boxicons for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <!-- AOS CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <style>
     :root {
       --bg-color: #0d1117;
@@ -18,6 +24,15 @@
       --card-bg: #161b22;
       --badge-bg: #238636;
       --transition: all 0.3s ease-in-out;
+    }
+    /* Light Mode Colors */
+    body.light {
+      --bg-color: #f5f8ff;
+      --text-color: #1f2937;
+      --accent: #2563eb;
+      --highlight: #dc2626;
+      --card-bg: #ffffff;
+      --badge-bg: #16a34a;
     }
 
     body {
@@ -29,19 +44,8 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    /* Light mode variables */
-    body.light {
-      --bg-color: #f9f9f9;
-      --text-color: #212121;
-      --accent: #0066ff;
-      --highlight: #d6336c;
-      --card-bg: #ffffff;
-      --badge-bg: #2d995b;
-    }
-
     .navbar {
       background: #010409;
-      background: var(--card-bg);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -52,12 +56,16 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
       transition: background-color 0.3s;
     }
+    body.light .navbar {
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
 
     .navbar .logo {
       font-size: 24px;
       font-weight: 600;
       color: var(--accent);
-      user-select: none;
+      transition: color 0.3s;
     }
 
     .navbar ul {
@@ -65,7 +73,6 @@
       display: flex;
       gap: 20px;
       margin: 0;
-      padding: 0;
     }
 
     .navbar a {
@@ -79,25 +86,43 @@
       color: var(--accent);
     }
 
-    /* Dark/Light toggle button */
     .toggle-btn {
       cursor: pointer;
-      font-size: 20px;
+      font-size: 22px;
       color: var(--accent);
       background: none;
       border: none;
       outline: none;
       transition: color 0.3s;
+      margin-left: 20px;
+      user-select: none;
     }
+
     .toggle-btn:hover {
       color: var(--highlight);
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .toggle-btn {
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        z-index: 1100;
+      }
     }
 
     .hero {
       text-align: center;
       padding: 160px 20px 100px;
-      background: linear-gradient(180deg, #1f2937, var(--bg-color));
-      transition: background-color 0.3s;
+      background: linear-gradient(180deg, #1f2937, #0d1117);
+      transition: background 0.3s;
+    }
+    body.light .hero {
+      background: linear-gradient(180deg, #e0e7ff, #f5f8ff);
     }
 
     .hero img {
@@ -113,6 +138,7 @@
     .hero h2 {
       font-size: 36px;
       margin: 10px 0;
+      transition: color 0.3s;
     }
 
     .hero span {
@@ -123,6 +149,9 @@
       font-size: 18px;
       color: #b3b3b3;
       transition: color 0.3s;
+    }
+    body.light .hero p {
+      color: #4b5563;
     }
 
     .social-links {
@@ -144,7 +173,6 @@
       padding: 80px 20px;
       max-width: 1100px;
       margin: auto;
-      transition: color 0.3s;
     }
 
     .section h3 {
@@ -163,6 +191,9 @@
       color: #ccc;
       transition: color 0.3s;
     }
+    body.light .section p {
+      color: #4b5563;
+    }
 
     .skills {
       display: grid;
@@ -172,12 +203,14 @@
 
     .skills div {
       background-color: #1e2329;
-      background-color: var(--card-bg);
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
       transition: var(--transition);
-      color: var(--text-color);
+    }
+    body.light .skills div {
+      background-color: #f9fafb;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .skills div:hover {
@@ -187,6 +220,10 @@
     .skills div h4 {
       color: var(--highlight);
       margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+    body.light .skills div h4 {
+      color: var(--highlight);
     }
 
     .projects-container {
@@ -198,51 +235,51 @@
 
     .project {
       background: var(--card-bg);
-      padding: 25px 20px;
+      padding: 20px;
       border-radius: 12px;
       width: 280px;
       text-align: center;
       transition: var(--transition);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: var(--text-color);
+      cursor: default;
       user-select: none;
+    }
+    body.light .project {
+      background: var(--card-bg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .project:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      transform: translateY(-5px);
+    }
+
+    .project .folder-icon {
+      font-size: 64px;
+      color: var(--accent);
+      margin-bottom: 15px;
+      transition: color 0.3s;
+    }
+    body.light .project .folder-icon {
+      color: var(--accent);
     }
 
     .project h4 {
       color: var(--highlight);
-      margin: 10px 0 20px;
-      font-size: 22px;
+      margin: 10px 0 5px;
+      transition: color 0.3s;
     }
 
-    .project-link {
+    .project a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 600;
-      font-size: 16px;
-      border: 2px solid var(--accent);
-      padding: 8px 20px;
-      border-radius: 25px;
-      transition: background-color 0.3s, color 0.3s;
+      display: inline-block;
+      margin-top: 12px;
+      transition: color 0.3s;
     }
 
-    .project-link:hover {
-      background-color: var(--accent);
-      color: var(--bg-color);
-    }
-
-    .project i.bx-folder-open {
-      font-size: 60px;
+    .project a:hover {
       color: var(--highlight);
-      margin-bottom: 15px;
-      user-select: none;
     }
 
     .contact-info {
@@ -251,58 +288,55 @@
       align-items: center;
       gap: 12px;
       font-size: 16px;
-      color: var(--text-color);
-      transition: color 0.3s;
     }
 
     .contact-info a {
       color: var(--text-color);
       text-decoration: none;
       transition: var(--transition);
-      user-select: text;
+      font-weight: 500;
     }
 
     .contact-info a:hover {
       color: var(--accent);
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .navbar ul {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .projects-container {
-        justify-content: center;
-      }
+    /* Scroll animation helpers */
+    [data-aos] {
+      opacity: 0;
+      transition-property: opacity, transform;
+      transition-timing-function: ease;
+    }
+    [data-aos].aos-animate {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
+  <nav class="navbar" data-aos="fade-down" data-aos-duration="800">
     <div class="logo">Thulashika R</div>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="toggle-btn" id="toggle-btn" aria-label="Toggle dark/light mode">
+    <button class="toggle-btn" id="toggle-btn" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
       <i class="fas fa-moon"></i>
     </button>
   </nav>
 
-  <header class="hero" data-aos="fade-down">
+  <header class="hero" data-aos="fade-up" data-aos-duration="1000">
     <img src="myimg.jpeg" alt="Profile Picture" />
     <h2>Hi, I'm <span>Thulashika Raveendran</span> 👋</h2>
     <p>Front-End Developer Intern | React & UI/UX Enthusiast</p>
     <div class="social-links">
-      <a href="https://github.com/dashboard"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/thulashika-raveendran-023899312" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:thulasthulashi@example.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/dashboard" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/thulashika-raveendran-023899312" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:thulasthulashi@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </div>
   </header>
 
-  <section id="about" class="section" data-aos="fade-up">
+  <section id="about" class="section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
     <h3>About Me</h3>
     <p>I’m a passionate Frontend Developer Intern at Detech who enjoys building responsive, interactive, and user-friendly web applications using modern technologies.</p>
     <div class="skills">
@@ -321,42 +355,43 @@
     </div>
   </section>
 
-  <section id="projects" class="section" data-aos="fade-up">
+  <section id="projects" class="section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
     <h3>Projects</h3>
     <div class="projects-container">
-      <div class="project" data-aos="zoom-in" data-aos-delay="100">
-        <i class="bx bx-folder-open"></i>
+      <div class="project" tabindex="0" aria-label="Project Heart Beat">
+        <i class="bx bx-folder folder-icon"></i>
         <h4>Heart Beat</h4>
-        <a href="project1.html" target="_blank" class="project-link">View Project</a>
+        <a href="project1.html" target="_blank" rel="noopener noreferrer">View Project</a>
       </div>
-      <div class="project" data-aos="zoom-in" data-aos-delay="200">
-        <i class="bx bx-folder-open"></i>
+      <div class="project" tabindex="0" aria-label="Project Green">
+        <i class="bx bx-folder folder-icon"></i>
         <h4>Green</h4>
-        <a href="project3.html" target="_blank" class="project-link">View Project</a>
+        <a href="project3.html" target="_blank" rel="noopener noreferrer">View Project</a>
       </div>
-      <div class="project" data-aos="zoom-in" data-aos-delay="300">
-        <i class="bx bx-folder-open"></i>
+      <div class="project" tabindex="0" aria-label="Project Tech World">
+        <i class="bx bx-folder folder-icon"></i>
         <h4>Tech World</h4>
-        <a href="project2.html" target="_blank" class="project-link">View Project</a>
+        <a href="project2.html" target="_blank" rel="noopener noreferrer">View Project</a>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="section" data-aos="fade-up">
+  <section id="contact" class="section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
     <h3>Contact</h3>
     <p>Let’s collaborate on something awesome. Connect with me here:</p>
     <div class="contact-info">
       <a href="mailto:thulasthulashi@example.com"><i class="fas fa-envelope"></i> thulasthulashi@gmail.com</a>
-      <a href="https://www.linkedin.com/in/thulashika-raveendran-023899312" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://www.linkedin.com/in/thulashika-raveendran-023899312" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
     </div>
   </section>
 
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- AOS Animation Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 800,
       once: true,
+      easing: 'ease-out-cubic',
+      duration: 800,
     });
 
     // Dark/Light mode toggle
