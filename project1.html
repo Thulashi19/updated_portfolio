@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Description</title>
-  <link rel="stylesheet" href="style.css">
-</head><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heart Beat | Project Overview</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Heart Beat | Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
-      color: #222;
-      line-height: 1.6;
-      padding: 20px;
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #edf2f8, #cfd9df);
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
     }
 
     .container {
       max-width: 900px;
-      margin: auto;
-      background: white;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      border-radius: 16px;
       padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
     }
 
     header {
@@ -43,12 +40,13 @@
     }
 
     header h1 {
-      font-size: 2.5em;
+      font-size: 2.8rem;
+      font-weight: 700;
       color: #e63946;
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 15px;
+      justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
@@ -60,81 +58,87 @@
     }
 
     header p {
-      margin-top: 15px;
-      font-size: 1.1em;
-      color: #555;
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: #333;
     }
 
-    .details h2 {
-      font-size: 1.8em;
-      margin-bottom: 15px;
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
       color: #1d3557;
+      text-align: center;
     }
 
-    .details ul {
+    ul {
       list-style: none;
       padding-left: 0;
     }
 
-    .details li {
-      background: #f1f1f1;
+    ul li {
+      background-color: #f1f1f1;
       margin: 10px 0;
-      padding: 12px 16px;
+      padding: 14px 18px;
       border-left: 5px solid #457b9d;
-      border-radius: 6px;
-      font-size: 1em;
+      border-radius: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    footer {
+    ul li i {
+      color: #e63946;
+    }
+
+    .button-group {
       text-align: center;
       margin-top: 30px;
-    }
-
-    footer a {
-      background-color: #1d3557;
-      color: #fff;
-      padding: 10px 25px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.3s;
-    }
-
-    footer a:hover {
-      background-color: #457b9d;
-    }
-
-    .b1 {
-      margin-top: 20px;
       display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
       justify-content: center;
     }
 
-    .b1 a {
-      background-color: #e63946;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-weight: 500;
+    .btn {
       text-decoration: none;
-      transition: background 0.3s;
+      padding: 12px 28px;
+      background: #1d3557;
+      color: #fff;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .b1 a:hover {
-      background-color: #c9283e;
+    .btn:hover {
+      background: #457b9d;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 1.8em;
+        font-size: 2rem;
       }
 
-      .details h2 {
-        font-size: 1.5em;
+      .container {
+        padding: 25px;
       }
 
-      .details li {
-        font-size: 0.95em;
+      ul li {
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -142,60 +146,30 @@
 <body>
   <div class="container">
     <header>
-      <h1>Heart Beat <img src="img1.avif" alt="Heart Beat Logo"></h1>
-      <p>Heart Beat is a responsive and user-friendly web application offering vital heart health services, stats, and accessibility features to support patients efficiently.</p>
+      <h1>Heart Beat <img src="img1.avif" alt="Heart Beat Logo" /></h1>
+      <p>Heart Beat is a clean, responsive web app offering essential heart health resources and a smooth user experience.</p>
     </header>
 
-    <section class="details">
-      <h2><i class="fas fa-circle-info"></i> Key Features</h2>
+    <section>
+      <h2><i class="fas fa-heartbeat"></i> Project Features</h2>
       <ul>
-        <li>🔍 <strong>Navigation & Accessibility</strong> – Easy access to About, Services, and Contact.</li>
-        <li>🎯 <strong>Hero Section</strong> – Engaging message with service and contact links.</li>
-        <li>❤️ <strong>About Section</strong> – Focuses on mission and patient-centered care.</li>
-        <li>📊 <strong>Health Stats</strong> – Displays number of patients, consultations, and success metrics.</li>
-        <li>✉️ <strong>Contact Form</strong> – Clean and intuitive for user inquiries.</li>
-        <li>📞 <strong>Quick Contact Info</strong> – Includes phone, address, and hours.</li>
+        <li><i class="fas fa-compass"></i> Navigation & Accessibility – Smooth scroll to About, Services, and Contact.</li>
+        <li><i class="fas fa-bullseye"></i> Hero Section – Clear, engaging intro with action buttons.</li>
+        <li><i class="fas fa-users"></i> About Section – Highlights mission and patient-focused approach.</li>
+        <li><i class="fas fa-chart-bar"></i> Health Stats – Showcases user metrics and service success.</li>
+        <li><i class="fas fa-envelope-open-text"></i> Contact Form – Easy-to-use inquiry submission.</li>
+        <li><i class="fas fa-phone-alt"></i> Quick Contact Info – Includes phone, address, and hours.</li>
       </ul>
     </section>
 
-    <footer>
-      <a href="https://github.com/Thulashi19/Heartbeat" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-    </footer>
-
-    <div class="b1">
-      <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <div class="button-group">
+      <a href="https://github.com/Thulashi19/Heartbeat" class="btn" target="_blank">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
+      <a href="index.html" class="btn">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
     </div>
   </div>
-</body>
-</html>
-
-<body>
-  <div class="container">
-    <header>
-      <h1>Heart Beat<img src="img1.avif" style="width:100px; height:100px;"></h1>
-      <p>Heart Beat is a user-friendly, responsive website designed to provide essential health services and resources. It serves as a one-stop solution for individuals seeking medical care, information about heart health, and access to various health services.</p>
-    </header>
-
-    <section class="details">
-      <h2>Features</h2>
-      <ul>
-         <li>1)🔍 Navigation & Accessibility – Quick access to About, Services, and Contact.</li>
-        <li>2)🎯 Hero Section – Clear core message with service and contact links.</li>
-        <li>3)❤️ About Section – Highlights Heart Beat’s mission and patient care focus.</li>
-
-        <li>4)📊 Health Stats – Displays patients served, consultations, and success rates.</li>
-        <li>5)✉️ Contact Form – Simple form for inquiries and consultations.</li>
-        <li>6)📞 Contact Info – Phone, address, and business hours for easy reach.</li>
-      </ul>
-    </section>
-
-    <footer>
-      <a href="https://github.com/Thulashi19/Heartbeat" target="_blank">Check it out on GitHub</a>
-    </footer>
-
-   <button class="b1"><a href="index.html" style="text-decoration: none;margin-left:">Back to Home</a></button>
-  </div>
-
- 
 </body>
 </html>
