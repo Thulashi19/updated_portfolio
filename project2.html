@@ -1,37 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Description</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech World | Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #dbeafe);
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      padding: 40px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #0077b6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      width: 70px;
+      height: 70px;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #023e8a;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      background-color: #f1f5f9;
+      margin: 10px 0;
+      padding: 14px 18px;
+      border-left: 5px solid #0077b6;
+      border-radius: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: #0077b6;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      border: 2px solid #0077b6;
+      padding: 10px 20px;
+      border-radius: 50px;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+
+    footer a:hover {
+      background: #0077b6;
+      color: #fff;
+    }
+
+    .back-button {
+      display: block;
+      margin: 30px auto 0;
+      text-align: center;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      background-color: #222;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background-color: #444;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 25px;
+      }
+
+      ul li {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1 style="color:lightblue;">Tech world!<img src="logo1.webp" style="width:80px; height:80px; border-radius:20px;"></h1>
-      <p>Tech World is a modern and responsive website designed to showcase IT solutions and services. Built using Tailwind CSS and Material UI, it offers a clean and professional layout with a focus on user experience and engagement</p>
+      <h1>Tech World <img src="logo1.webp" alt="Logo" /></h1>
+      <p>Tech World is a modern and responsive website designed to showcase IT solutions and services. Built using Tailwind CSS and Material UI, it offers a clean and professional layout with a focus on user experience and engagement.</p>
     </header>
 
     <section class="details">
-      <h2 style="color:lightcyan;">Features</h2>
+      <h2><i class="fas fa-star"></i> Features</h2>
       <ul>
-        <li>1)🌙 Dark Mode Toggle – Saves user preference.</li>
-        <li>2)🚀 Hero Section – Engaging headline & CTA.</li>
-        <li>3)💡 Services Showcase – Web Dev, UI/UX, IT Support & more.</li>
-        <li>4)📩 Contact Form – Easy inquiries with location & email</li>
-        <li>5)📱 Responsive & Accessible – Smooth experience on all devices</li>
-        
+        <li>🌙 Dark Mode Toggle – Saves user preference</li>
+        <li>🚀 Hero Section – Engaging headline & CTA</li>
+        <li>💡 Services Showcase – Web Dev, UI/UX, IT Support & more</li>
+        <li>📩 Contact Form – Easy inquiries with location & email</li>
+        <li>📱 Responsive & Accessible – Smooth experience on all devices</li>
       </ul>
     </section>
 
     <footer>
-      <a href="https://github.com/Thulashi19/techworld" target="_blank">Check it out on GitHub</a>
+      <a href="https://github.com/Thulashi19/techworld" target="_blank">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
     </footer>
 
-   <button class="b1"><a href="index.html" style="text-decoration: none;margin-left:">Back to Home</a></button>
+    <div class="back-button">
+      <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
   </div>
-
- 
 </body>
 </html>
